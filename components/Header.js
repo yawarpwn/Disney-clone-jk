@@ -1,6 +1,7 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { signIn, signOut } from 'next-auth/react'
-import { useSession, getSession } from 'next-auth/react'
+import { useSession  } from 'next-auth/react'
 import {
   HomeIcon,
   SearchIcon,
@@ -12,13 +13,15 @@ export default function Header() {
   const { data: session } = useSession()
   return (
     <div className='bg-[#040714] sticky top-0 h-[72px] px-10 flex items-center md:px-12 z-40'>
-      <Image
-        className='cursor-pointer'
-        src='/images/logo.svg'
-        alt='logo'
-        width={80}
-        height={80}
-      />
+      <Link href='/'>
+        <Image
+          className='cursor-pointer'
+          src='/images/logo.svg'
+          alt='logo'
+          width={80}
+          height={80}
+        />
+      </Link>
       {session && (
         <div className='ml-10 hidden md:flex items-center space-x-6'>
           <a className='header-link group'>
